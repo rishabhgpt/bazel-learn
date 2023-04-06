@@ -1,4 +1,4 @@
-load("@py_deps//:requirements.bzl", "requirement")
+load("@pip//:requirements.bzl", "requirement")
 py_binary(
     name="main",
     srcs = ["main.py"],
