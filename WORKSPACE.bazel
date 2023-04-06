@@ -1,14 +1,13 @@
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
-rules_python_version = "740825b7f74930c62f44af95c9a4c1bd428d2c53" # Latest @ 2021-06-23
 
 http_archive(
     name = "rules_python",
-    # Bazel will print the proper value to add here during the first build.
-    # sha256 = "FIXME",
-    strip_prefix = "rules_python-{}".format(rules_python_version),
-    url = "https://github.com/bazelbuild/rules_python/archive/{}.zip".format(rules_python_version),
+    sha256 = "b593d13bb43c94ce94b483c2858e53a9b811f6f10e1e0eedc61073bd90e58d9c",
+    strip_prefix = "rules_python-0.12.0",
+    url = "https://github.com/bazelbuild/rules_python/archive/refs/tags/0.12.0.tar.gz",
 )
+
 
 ### Python Setup
 load("@rules_python//python:pip.bzl", "pip_install")
