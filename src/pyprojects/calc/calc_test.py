@@ -1,6 +1,6 @@
 import unittest
 
-from pyprojects.calc.calc import Calc
+from calc import Calc
 
 class TestSum(unittest.TestCase):
     def test_sum(self):

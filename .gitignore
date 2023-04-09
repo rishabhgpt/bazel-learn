@@ -4,7 +4,7 @@ __pycache__/
 *$py.class
 
 
-bazel-*/
+bazel-*
 # C extensions
 *.so
 
