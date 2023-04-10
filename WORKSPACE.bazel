@@ -1,6 +1,5 @@
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
-
 http_archive(
     name = "rules_python",
     sha256 = "b593d13bb43c94ce94b483c2858e53a9b811f6f10e1e0eedc61073bd90e58d9c",
@@ -8,13 +7,12 @@ http_archive(
     url = "https://github.com/bazelbuild/rules_python/archive/refs/tags/0.12.0.tar.gz",
 )
 
-
 ### Python Setup
 load("@rules_python//python:pip.bzl", "pip_install")
 
 pip_install(
     name = "pip",
-    requirements = "//third_party:requirements.txt"
+    requirements = "//third_party:requirements.txt",
 )
 
 ### gazelle+go
@@ -36,9 +34,8 @@ http_archive(
     ],
 )
 
-
 load("@io_bazel_rules_go//go:deps.bzl", "go_register_toolchains", "go_rules_dependencies")
-load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies", "go_repository")
+load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies")
 
 ############################################################
 # Define your own dependencies here using go_repository.
@@ -46,11 +43,12 @@ load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies", "go_repository")
 # The first declaration of an external repository "wins".
 ############################################################
 
-go_repository(
-    name = "com_github_gorilla_mux",
-    importpath = "github.com/gorilla/mux",
-    tag = "v1.8.0"
-)
+
+
+load("//third_party:automatic_repos.bzl", automatic_repos = "go_repositories")
+
+# gazelle:repository_macro third_party/automatic_repos.bzl%go_repositories
+automatic_repos()
 
 go_rules_dependencies()
 

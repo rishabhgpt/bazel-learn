@@ -7,8 +7,10 @@ gazelle(name = "gazelle")
 gazelle(
     name = "gazelle-update-repos",
     args = [
-        "-from_file=go.mod",
-        "-to_macro=go_deps.bzl%go_dependencies",
+        "-from_file=src/go.mod",
+        "-to_macro=third_party/automatic_repos.bzl%go_repositories",
+        "-build_file_proto_mode=disable",
+        "-build_extra_args=-go_naming_convention_external=go_default_library",
         "-prune",
     ],
     command = "update-repos",

@@ -6,7 +6,7 @@ import (
 	"os"
 
 	"github.com/gorilla/mux"
-	"github.com/rishabhgpt/projects/bookstore/repository"
+	"github.com/rishabhgpt/projects/src/bookstore/repository"
 )
 
 func YourHandler(w http.ResponseWriter, r *http.Request) {
