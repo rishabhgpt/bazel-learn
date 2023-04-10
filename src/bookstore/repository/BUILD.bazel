@@ -6,7 +6,7 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library")
 go_library(
     name = "bookstore_repository",
     srcs = ["bookstore_repository.go"],
-    importpath = "github.com/rishabhgpt/projects/bookstore/repository",
+    importpath = "github.com/rishabhgpt/projects/src/bookstore/repository",
     visibility = ["//visibility:public"],
 )
 
